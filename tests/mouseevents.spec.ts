@@ -15,7 +15,7 @@ await page.getByText('right click me').click({button: 'right'});
 
 //Shift + click
 await page.goto("https://the-internet.herokuapp.com/shifting_content");
-await page.getByText('Example 1: Menu Element').click({modifiers: ["Shift"]});
+await page.getByText('Example 1: Menu Element1').click({modifiers: ["Shift"]});
 
 
 });

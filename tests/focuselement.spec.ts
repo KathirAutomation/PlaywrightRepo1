@@ -3,7 +3,7 @@ import { chromium, firefox} from '@playwright/test'
 //import { title } from 'process';
 
 test('Focus Element', async()=>{
-const browser:Browser = await firefox.launch({headless:false});
+const browser:Browser = await chromium.launch({headless:false});
 const page:Page = await browser.newPage();
 await page.goto("https://orangehrm.com/en/30-day-free-trial");
 
@@ -17,13 +17,17 @@ await fullname.fill('Kathir');
 
 const countrydropdown = 'select#Form_getForm_Country';
 
-await page.selectOption (countrydropdown, {value: 'Algeria'});
+await page.selectOption(countrydropdown, {value: 'Algeria'});
 
-//const checkbox = await page.getByRole('presentation',{name: 'recaptcha-anchor-label'}).check();
 
-// const checkbox = page.locator('.recaptcha-anchor-label');
+// Wait for the iframe to appear 
+const frameLocator = page.frameLocator('iframe[title="reCAPTCHA"]');
+// Target the checkbox inside the iframe 
+const checkbox = frameLocator.locator('.recaptcha-checkbox-border'); 
+// Expect it to be visible 
+await expect(checkbox).toBeVisible();
 //await checkbox.click();
-await expect(page.getByRole('presentation',{name: "I'm not a robot"})).toBeVisible();
+//await expect(checkbox).toBeChecked();
 await expect(page.getByRole('link',{name: 'Privacy Policy.'})).toBeVisible();
 await expect(page.getByRole('link',{name: 'Privacy Policy.'})).toBeEnabled();
 

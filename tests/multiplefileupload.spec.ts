@@ -17,7 +17,7 @@ await page.locator('input[name="filesToUpload"]')
     path.join("C:/Users/HP/Desktop/cvc.docx"),
     path.join("C:/Users/HP/Desktop/Vasantha Kumar resume.pdf")]);
 
-    await page.waitForTimeout(4000);
+    await page.waitForTimeout(4000);  
 
  //Deselect files
  await page.locator('input[name="filesToUpload"]').setInputFiles([]);

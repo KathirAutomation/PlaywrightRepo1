@@ -20,7 +20,7 @@ console.log("GbuttonExists ",GbuttonExists);
 
 //3.text
 const header = page.locator('text=Create your Naukri profile');
-const headerExists = await header.isEnabled();
+const headerExists = await header.isVisible();
 console.log("HeaderTileExists: ",headerExists);
 
 //4.CSS & Xpath

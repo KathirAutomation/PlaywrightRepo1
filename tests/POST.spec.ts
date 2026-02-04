@@ -7,7 +7,7 @@ import PostRequest from '../Payload/PostRequest.json';
 
 
 test.describe('Post API Testing', () =>{
-    test.describe.configure({mode: 'serial'});
+   test.describe.configure({mode: 'parallel'});
  //Verifying 200 status code and header contect-Type value   
 test('POSt API validation- test 1 @smoke', async ({}) =>{
     const apiContext = await request.newContext({
